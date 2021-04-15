@@ -1,14 +1,21 @@
-import { TaskListTable } from './styles'
+import { List } from './styles'
 import trash from '../../assets/trash.svg'
 
-function TaskList() {
+function TaskList({ arrayTaskList }) {
   return (
-    <TaskListTable>
-          <tr /*key={transaction.id}*/>
-            <td>Testando Task list</td>
-            <button><img src={trash} alt="Remover Item" /></button>
-          </tr>
-    </TaskListTable>
+    <List>
+      {arrayTaskList.map(task => (
+        <li key={task.id}>
+          <div>
+            <span>{task.title}</span>
+          </div>
+
+          <button>
+            <img src={trash} alt="Remover Item" />
+          </button>
+        </li>
+      ))}
+    </List>
   )
 }
 
