@@ -1,8 +1,19 @@
-//import { NewTask } from './styles'
+import { Form } from './styles'
 
 function NewTask() {
   return (
-    <h1>NewTask</h1>
+    <Form>
+      <input
+        type="text"
+        //value={description}
+        //onChange={handleDescription}
+        id="description"
+        name="description"
+        placeholder="Digite uma Tarefa"
+        autoFocus
+      />
+      <button type="submit">+</button>
+    </Form>
   )
 }
 
