@@ -2,12 +2,13 @@ import styled from 'styled-components'
 
 export const Form = styled.form`
   input{
+    font-size:1.2rem;
     background: #323232;
     border: none;
     border-radius: 0.2rem;
     padding: 0.8rem;
-    width: 50%;
-    margin-bottom: 3rem;
+    width: 30vw;
+    margin-bottom: 2rem;
     color:#D0D0D0;
     margin-right: 1rem;
   }

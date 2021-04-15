@@ -1,7 +1,7 @@
 import { List } from './styles'
 import trash from '../../assets/trash.svg'
 
-function TaskList({ arrayTaskList }) {
+function TaskList({ arrayTaskList, removeTask }) {
   return (
     <List>
       {arrayTaskList.map(task => (
@@ -10,7 +10,7 @@ function TaskList({ arrayTaskList }) {
             <span>{task.title}</span>
           </div>
 
-          <button>
+          <button onClick={() => removeTask(task.id)}>
             <img src={trash} alt="Remover Item" />
           </button>
         </li>

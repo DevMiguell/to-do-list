@@ -12,15 +12,15 @@ export const List = styled.ul`
     margin-bottom: 1rem;
 
     div {
-      width: 400px;
+      width: 30vw;
       padding: 0.8rem;
       margin-right: 1rem;
       background: #323232;
-      border-radius: 0.5rem;
+      border-radius: 0.2rem;
+      text-align: initial;
 
       span {
         color: #D0D0D0;
-        text-align: initial;
         font-size: 1rem;
       }
     }

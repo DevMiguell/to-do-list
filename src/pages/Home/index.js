@@ -12,11 +12,16 @@ function Home() {
     setArrayTaskList([...arrayTaskList, objTask])
   }
 
+  const removeTask = id => {
+    const removedTask = arrayTaskList.filter(task => task.id !== id)
+    setArrayTaskList(removedTask)
+  }
+
   return (
     <ContainerGlobal>
       <Header />
       <NewTask addTask={addTask} />
-      <TaskList arrayTaskList={arrayTaskList} />
+      <TaskList arrayTaskList={arrayTaskList} removeTask={removeTask} />
     </ContainerGlobal>
   )
 }
