@@ -1,8 +1,12 @@
-//import { Header } from './styles'
+import { HeaderContainer } from './styles'
 
 function Header() {
   return (
-    <h1>To Do List</h1>
+    <HeaderContainer>
+      <h1>
+        To Do List
+      </h1>
+    </HeaderContainer>
   )
 }
 
