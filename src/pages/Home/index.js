@@ -23,12 +23,19 @@ function Home() {
   const dispatch = useDispatch()
 
   return (
-    <ContainerGlobal>
-      <Header />
-      <NewTask addTask={addTask} />
-      <TaskList arrayTaskList={arrayTaskList} removeTask={removeTask} />
-      <li className=""><Link to="/" className="" onClick={() => dispatch({ type: 'LOG_OUT' })}>Sair</Link></li>
-    </ContainerGlobal>
+    <>
+    {
+    useSelector(state => state.usuarioLogado) > 0 ?
+      <ContainerGlobal>
+        <Header />
+        <NewTask addTask={addTask} />
+        <TaskList arrayTaskList={arrayTaskList} removeTask={removeTask} />
+        <li className=""><Link to="/" className="" onClick={() => dispatch({ type: 'LOG_OUT' })}>Sair</Link></li>
+      </ContainerGlobal>
+      :
+      window.location.href = "/"
+    }
+    </>
   )
 }
 
