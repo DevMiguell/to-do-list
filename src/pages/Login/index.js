@@ -62,7 +62,7 @@ function Login() {
 
           <div className="msgError">
             {msgTipo === 'erro' && <span><strong>Ops!</strong> Senha ou usuário estão incorretos! 
-            <Link to="/usuariorecuperarsenha" className="PassRecLink"> Recuperar Senha</Link>
+            <Link to="/userrecoverpassword" className="PassRecLink"> Recuperar Senha</Link>
             </span>}
           </div>
         </form>

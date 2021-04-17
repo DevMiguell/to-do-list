@@ -7,6 +7,7 @@ import { Global } from './Styles/Global'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NewUser from './pages/NewUser'
+import UserRecoverPassword from './pages/UserRecoverPassword'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route exact path='/' component={Login} />
             <Route exact path='/newuser' component={NewUser} />
             <Route exact path='/home' component={Home} />
+            <Route exact path='/userrecoverpassword' component={UserRecoverPassword} />
           </Router>
         </PersistGate>
       </Provider>

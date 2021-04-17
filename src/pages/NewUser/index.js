@@ -3,6 +3,8 @@ import { useState } from 'react'
 import firebase from '../../config/firebase'
 import 'firebase/auth'
 
+import Logo from "../../assets/Logo.svg"
+
 import { ContainerGlobal } from '../Home/styles'
 import { NewUserContainer } from './styles'
 
@@ -49,22 +51,25 @@ const NewUser = () => {
     <>
       <ContainerGlobal>
         <NewUserContainer>
-            <form className="">
-              <h1>Cadastrar novo usuario</h1>
+          <form>
+            <div>
+              <img src={Logo} alt="Logo" />
+            </div>
+            <h1>Cadastrar novo usuario</h1>
 
-              <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="Email" />
-              <input onChange={(e) => setSenha(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
+            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
+            <input onChange={(e) => setSenha(e.target.value)} type="password" placeholder="Senha" />
 
-              {
-                carregando ? <div className="" role="status"><span>Loading...</span></div>
-                  : <button onClick={cadastrar} type="button" className="w-100 btn btn-lg btn-cadastro">Cadastrar</button>
-              }
-              <div className="">
-                {/* Se oque estiver dentro de msgTipo for sucesso &&(entao) mostre ... */}
-                {msgTipo === 'sucesso' && <span><strong>WoW! </strong>Usuario cadastrado com sucesso! </span>}
-                {msgTipo === 'erro' && <span><strong>Ops! </strong> {msg} </span>}
-              </div>
-            </form>
+            {
+              carregando ? <div role="status"><span>Loading...</span></div>
+                : <button onClick={cadastrar} type="button" >Cadastrar</button>
+            }
+            <div >
+              {/* Se oque estiver dentro de msgTipo for sucesso &&(entao) mostre ... */}
+              {msgTipo === 'sucesso' && <span><strong>WoW! </strong>Usuario cadastrado com sucesso! </span>}
+              {msgTipo === 'erro' && <span><strong>Ops! </strong> {msg} </span>}
+            </div>
+          </form>
         </NewUserContainer>
       </ContainerGlobal>
     </>

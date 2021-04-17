@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 
 export const NewUserContainer = styled.div`
-  margin: 30vh auto;
+  margin: 20vh auto;
 
   form {
     display: flex;
     align-items:center;
     flex-direction: column;
+
+    img {
+      width: 10vh;
+      margin-bottom: 2rem;
+    }
 
     h1 {
       margin-bottom: 2rem;
