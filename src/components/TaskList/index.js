@@ -1,20 +1,18 @@
 import { List } from './styles'
 import trash from '../../assets/trash.svg'
 
-function TaskList({ arrayTaskList, removeTask }) {
+function TaskList({key, data}) {
   return (
     <List>
-      {arrayTaskList.map(task => (
-        <li key={task.id}>
+        <li id = {key}>
           <div>
-            <span>{task.title}</span>
+            <span>{data}</span>
           </div>
 
-          <button onClick={() => removeTask(task.id)}>
+          {/* <button onClick={() => removeTask(task.id)}>
             <img src={trash} alt="Remover Item" />
-          </button>
+          </button> */}
         </li>
-      ))}
     </List>
   )
 }

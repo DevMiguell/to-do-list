@@ -1,22 +1,29 @@
 import { useState } from 'react'
 import { Form } from './styles'
 
-function NewTask({ addTask }) {
+import firebase from '../../config/firebase';
+import { useSelector } from 'react-redux';
+
+function NewTask() {
   const [newTask, setNewTask] = useState('')
+  const usuarioEmail = useSelector(state => state.usuarioEmail)
+
+  const db = firebase.firestore()
+
+  function cadastrar() {
+    db.collection('todolist').add({
+      data: newTask,
+      user: usuarioEmail,
+      create: new Date(),
+    }).catch(erro => {
+      alert(erro)
+    })
+  }
 
   const handleTask = (event) => setNewTask(event.target.value)
 
   const handleTaskSubmit = (event) => {
-    console.log(event)
-
     event.preventDefault()
-
-    const objTask = {
-      id: Date.now(),
-      title: newTask,
-    }
-
-    addTask(objTask)
   }
 
   return (
@@ -30,7 +37,7 @@ function NewTask({ addTask }) {
         placeholder="Digite uma Tarefa"
       />
 
-      <button type="submit">+</button>
+      <button onClick={cadastrar} type="submit">+</button>
     </Form>
   )
 }
