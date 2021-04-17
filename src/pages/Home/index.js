@@ -1,6 +1,9 @@
 import { ContainerGlobal } from './styles'
 import { useState } from 'react'
 
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+
 import Header from '../../components/Header'
 import NewTask from '../../components/NewTask'
 import TaskList from '../../components/TaskList'
@@ -17,11 +20,14 @@ function Home() {
     setArrayTaskList(removedTask)
   }
 
+  const dispatch = useDispatch()
+
   return (
     <ContainerGlobal>
       <Header />
       <NewTask addTask={addTask} />
       <TaskList arrayTaskList={arrayTaskList} removeTask={removeTask} />
+      <li className=""><Link to="/" className="" onClick={() => dispatch({ type: 'LOG_OUT' })}>Sair</Link></li>
     </ContainerGlobal>
   )
 }

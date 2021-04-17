@@ -5,7 +5,7 @@ export const LoginContainer = styled.div`
   align-items: center;
   height: 100vh;
 
-     img {
+    div > img {
       width:30vw;
   }
 
@@ -14,6 +14,11 @@ export const LoginContainer = styled.div`
     align-items:center;
     flex-direction: column;
     margin-right: 4rem;
+
+    img {
+      width: 5vw;
+      margin-bottom: 2rem;
+    }
 
     input {
       font-size:1.2rem;
@@ -37,9 +42,26 @@ export const LoginContainer = styled.div`
     transition: 0.3s;
     margin: 0;
     font-size: 1rem;
+    margin-bottom: 1.5rem;
 
     &:hover {
       background-color: #43bc6d;
+      }
+    }
+
+    .newUser {
+      display: flex;
+      font-size: 1.1rem;
+      align-items:center;
+
+      strong {
+        font-style: none;
+        color: #D0D0D0;
+        transition: 0.3s;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }

@@ -1,26 +1,71 @@
 import { ContainerGlobal } from "../Home/styles";
 import { LoginContainer } from "./styles"
 
+import React, { useState } from 'react';
+
+import { Link, Redirect } from 'react-router-dom';
+
+import firebase from '../../config/firebase';
+import 'firebase/auth';
+
+import { useSelector, useDispatch } from 'react-redux';
+
 import todoImg from "../../assets/todoImg.svg"
+import Logo from "../../assets/Logo.svg"
+import loginWhite from "../../assets/login_white.svg"
 
 function Login() {
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const [msgTipo, setMsgTipo] = useState();
+
+  const dispatch = useDispatch();
+
+  function logar() {
+
+    firebase.auth().signInWithEmailAndPassword(email, senha).then(resultado => {
+      setMsgTipo('sucesso')
+      dispatch({ type: 'LOG_IN', usuarioEmail: email })
+    }).catch(erro => {
+      setMsgTipo('erro')
+    });
+
+  }
   return (
     <ContainerGlobal>
+      {useSelector(state => state.usuarioLogado) > 0 ? <Redirect to='/home' /> : null}
+
+
       <LoginContainer>
         <form>
-          <input onChange=""
+          <div>
+            <img src={Logo} alt="Logo" />
+          </div>
+          <input onChange={(e) => setEmail(e.target.value)}
             type="email"
             id="inputEmail"
-            className=""
-            placeholder="Email" />
+            class="form-control my-2"
+            placeholder="Email"
+          />
 
-          <input onChange=""
+          <input onChange={(e) => setSenha(e.target.value)}
             type="password"
             id="inputPassword"
-            className=""
-            placeholder="Password" />
+            class="form-control my-2"
+            placeholder="Senha"
+          />
 
-          <button onClick="" className="" type="button">Login</button>
+          <button onClick={logar} className="" type="button">Login</button>
+
+          <Link to='novousuario' className="newUser">
+            <strong> Não Tenho Cadastro</strong>
+          </Link>
+
+          <div className="">
+            {msgTipo === 'erro' && <span><strong>Ops!</strong> Senha ou usuário estão incorretos!
+            <Link to="/usuariorecuperarsenha" className="">Recuperar Senha</Link>
+            </span>}
+          </div>
         </form>
         <div>
           <img src={todoImg} alt="Todo Imagem" />
