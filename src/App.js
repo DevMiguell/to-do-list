@@ -6,7 +6,7 @@ import { Global } from './Styles/Global'
 
 import Home from './pages/Home'
 import Login from './pages/Login'
-// import NewUser from './pages/NewUser'
+import NewUser from './pages/NewUser'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <PersistGate loading={null} persistor={persistor}>
           <Router>
             <Route exact path='/' component={Login} />
-            {/* <Route exact path='/newuser' component={NewUser} /> */}
+            <Route exact path='/newuser' component={NewUser} />
             <Route exact path='/home' component={Home} />
           </Router>
         </PersistGate>

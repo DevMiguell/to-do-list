@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import todoImg from "../../assets/todoImg.svg"
 import Logo from "../../assets/Logo.svg"
-import loginWhite from "../../assets/login_white.svg"
 
 function Login() {
   const [email, setEmail] = useState();
@@ -57,13 +56,13 @@ function Login() {
 
           <button onClick={logar} className="" type="button">Login</button>
 
-          <Link to='novousuario' className="newUser">
+          <Link to='newuser' className="newUser">
             <strong> Não Tenho Cadastro</strong>
           </Link>
 
-          <div className="">
-            {msgTipo === 'erro' && <span><strong>Ops!</strong> Senha ou usuário estão incorretos!
-            <Link to="/usuariorecuperarsenha" className="">Recuperar Senha</Link>
+          <div className="msgError">
+            {msgTipo === 'erro' && <span><strong>Ops!</strong> Senha ou usuário estão incorretos! 
+            <Link to="/usuariorecuperarsenha" className="PassRecLink"> Recuperar Senha</Link>
             </span>}
           </div>
         </form>

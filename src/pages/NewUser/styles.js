@@ -1,25 +1,17 @@
 import styled from 'styled-components'
 
-export const LoginContainer = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100vh;
-
-    div > img {
-      width:30vw;
-  }
+export const NewUserContainer = styled.div`
+  margin: 30vh auto;
 
   form {
     display: flex;
     align-items:center;
     flex-direction: column;
-    margin-right: 4rem;
 
-    img {
-      width: 5vw;
+    h1 {
       margin-bottom: 2rem;
     }
-
+    
     input {
       font-size:1.2rem;
       background: #323232;
@@ -43,37 +35,15 @@ export const LoginContainer = styled.div`
     margin: 0;
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    margin-top: 1rem;
 
     &:hover {
       background-color: #43bc6d;
       }
     }
 
-    .newUser {
-      font-size: 1.1rem;
-      strong {
-        font-style: none;
-        color: #D0D0D0;
-        transition: 0.3s;
-        text-decoration: none;
-
-        &:hover {
-          color: #fff;
-        }
-      }
-    }
     .msgError {
       margin-top:1rem;
-
-      .PassRecLink {
-        text-decoration: none;
-        color: #e6e719;
-        transition: 0.3s;
-
-        &:hover {
-          color: #ffff00;
-        }
-      }
     }
   }
 
