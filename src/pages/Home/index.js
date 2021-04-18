@@ -14,14 +14,13 @@ function Home() {
   const [arrayTaskList, setArrayTaskList] = useState([])
   let listTodo = []
 
-  // const addTask = objTask => {
-  //   setArrayTaskList([...arrayTaskList, objTask])
-  // }
-
-  // const removeTask = id => {
-  //   const removedTask = arrayTaskList.filter(task => task.id !== id)
-  //   setArrayTaskList(removedTask)
-  // }
+  const removeTask = id => {
+    firebase.firestore().collection('todolist').doc(id).delete().then( 
+      console.log('Deu certo')
+    ).catch(erro => {
+      alert(erro)
+    })
+  }
 
   const dispatch = useDispatch()
 
@@ -46,8 +45,10 @@ function Home() {
             <Header />
             <NewTask />
             {arrayTaskList.map(item => <TaskList
-              key={item.id}
-              data={item.data} 
+              id={item.id}
+              data={item.data}
+              user={item.user}
+              removeTask={removeTask}
             />)}
             <li className=""><Link to="/" className="" onClick={() => dispatch({ type: 'LOG_OUT' })}>Sair</Link></li>
           </ContainerGlobal>

@@ -1,18 +1,25 @@
 import { List } from './styles'
 import trash from '../../assets/trash.svg'
+import { useSelector } from 'react-redux';
 
-function TaskList({key, data}) {
+function TaskList({id, data, user, removeTask}) {
+
+  const usuarioLogado = useSelector(state => state.usuarioEmail);
+
   return (
     <List>
-        <li id = {key}>
+      { usuarioLogado === user ?
+        <li id={id}>
           <div>
             <span>{data}</span>
           </div>
 
-          {/* <button onClick={() => removeTask(task.id)}>
+          <button onClick={() => { removeTask(id) }}>
             <img src={trash} alt="Remover Item" />
-          </button> */}
+          </button>
         </li>
+        : ''
+      }
     </List>
   )
 }
