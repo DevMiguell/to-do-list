@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Form } from './styles'
 
-import firebase from '../../config/firebase';
-import { useSelector } from 'react-redux';
+import firebase from '../../config/firebase'
+import { useSelector } from 'react-redux'
+
+import { Form } from './styles'
 
 function NewTask() {
   const [newTask, setNewTask] = useState('')

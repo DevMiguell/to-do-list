@@ -1,24 +1,22 @@
-import { ContainerGlobal } from "../Home/styles";
+import React, { useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { ContainerGlobal } from "../Home/styles"
 import { LoginContainer } from "./styles"
 
-import React, { useState } from 'react';
-
-import { Link, Redirect } from 'react-router-dom';
-
-import firebase from '../../config/firebase';
-import 'firebase/auth';
-
-import { useSelector, useDispatch } from 'react-redux';
+import firebase from '../../config/firebase'
+import 'firebase/auth'
 
 import todoImg from "../../assets/todoImg.svg"
 import Logo from "../../assets/Logo.svg"
 
 function Login() {
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-  const [msgTipo, setMsgTipo] = useState();
+  const [email, setEmail] = useState()
+  const [senha, setSenha] = useState()
+  const [msgTipo, setMsgTipo] = useState()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   function logar() {
 
@@ -27,7 +25,7 @@ function Login() {
       dispatch({ type: 'LOG_IN', usuarioEmail: email })
     }).catch(erro => {
       setMsgTipo('erro')
-    });
+    })
 
   }
   return (
@@ -40,6 +38,7 @@ function Login() {
           <div>
             <img src={Logo} alt="Logo" />
           </div>
+
           <input onChange={(e) => setEmail(e.target.value)}
             type="email"
             id="inputEmail"
@@ -66,6 +65,7 @@ function Login() {
             </span>}
           </div>
         </form>
+        
         <div>
           <img src={todoImg} alt="Todo Imagem" />
         </div>

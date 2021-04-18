@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import firebase from '../../config/firebase';
-import 'firebase/auth';
-import { ContainerGlobal } from '../Home/styles';
+import firebase from '../../config/firebase'
+import 'firebase/auth'
+
+import { ContainerGlobal } from '../Home/styles'
 import { RecoverStyle } from './styles'
 
 function UserRecoverPassword() {
-
-    const [email, setEmail] = useState();
-    const [msg, setMsg] = useState();
+    const [email, setEmail] = useState()
+    const [msg, setMsg] = useState()
 
     function recuperarSenha() {
         firebase.auth().sendPasswordResetEmail(email).then(resultado => {
-            setMsg('Enviamos um link no seu email para você redefinir sua senha!');
+            setMsg('Enviamos um link no seu email para você redefinir sua senha!')
         }).catch(erro => {
-            setMsg('Verifique se o email está correto!');
+            setMsg('Verifique se o email está correto!')
         })
     }
 
@@ -36,4 +36,4 @@ function UserRecoverPassword() {
     )
 }
 
-export default UserRecoverPassword;
+export default UserRecoverPassword

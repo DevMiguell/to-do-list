@@ -1,10 +1,10 @@
 import { List } from './styles'
 import trash from '../../assets/trash.svg'
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 
 function TaskList({id, data, user, removeTask}) {
 
-  const usuarioLogado = useSelector(state => state.usuarioEmail);
+  const usuarioLogado = useSelector(state => state.usuarioEmail)
 
   return (
     <List>

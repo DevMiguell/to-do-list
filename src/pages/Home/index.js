@@ -2,9 +2,11 @@ import { ContainerGlobal } from './styles'
 import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 
 import firebase from '../../config/firebase'
+
+import Logout from '../../assets/logout.svg'
 
 import Header from '../../components/Header'
 import NewTask from '../../components/NewTask'
@@ -15,7 +17,7 @@ function Home() {
   let listTodo = []
 
   const removeTask = id => {
-    firebase.firestore().collection('todolist').doc(id).delete().then( 
+    firebase.firestore().collection('todolist').doc(id).delete().then(
       console.log('Deu certo')
     ).catch(erro => {
       alert(erro)
@@ -50,7 +52,9 @@ function Home() {
               user={item.user}
               removeTask={removeTask}
             />)}
-            <li className=""><Link to="/" className="" onClick={() => dispatch({ type: 'LOG_OUT' })}>Sair</Link></li>
+              <Link to="/" className="logout" onClick={() => dispatch({ type: 'LOG_OUT' })}>
+                <img src={Logout} title="Sair do APP" alt="Lougout Image" />
+              </Link>
           </ContainerGlobal>
           :
           window.location.href = "/"
